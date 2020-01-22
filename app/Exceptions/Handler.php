@@ -50,4 +50,19 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+    
+    // マルチ認証時に追加。間違っているかも
+    protected function unauthenticated($request, AuthenticationException $exception)
+{
+    if ($request->expectsJson()) {
+        return response()->json(['error' => 'Unauthenticated.'], 401);
+    }
+    if (in_array('admin', $exception->guards(), true)) {
+        return redirect()->guest(route('admin.login'));
+    }
+ 
+    return redirect()->guest(route('login'));
+}
+    
+    
 }
