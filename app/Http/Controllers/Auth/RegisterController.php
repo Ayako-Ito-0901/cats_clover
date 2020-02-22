@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -47,10 +47,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // カラム追加したので追加　passまであった
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            
+            'year' => 'required|integer',
+            'month' => 'required|integer|max:12',
+            'day' => 'required|integer|max:31',
+            
+            'family_of' =>'required|integer',
+            'post_address' => 'required|integer',
+            'prefecture' => 'required|string|max:255',
+            'address' => 'required|string|max:255'
         ]);
     }
 
@@ -62,10 +72,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // カラム追加したので追加してみた passまであった
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            
+            $data['month'] = sprintf('%02d',  $data['month']),
+            $data['day'] = sprintf('%02d',  $data['day']),
+            
+            'birth' => $data['year'].$data['month'].$data['day'],
+            
+            'family_of' => $data['family_of'],
+            'post_address' => $data['post_address'],
+            
+            // 県をconfigから取得
+            $prefecture = config('temp.pref'),
+            'prefecture' => $prefecture[$data['prefecture']],
+            
+            'address' => $data['address']
         ]);
     }
 }

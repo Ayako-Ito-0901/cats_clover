@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 200;
+}
+
+body,
+tooltip,
+popover {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+}
+
+@media all and (-ms-high-contrast: none) {
+  body,
+  tooltip,
+  popover {
+    font-family: Verdana, Meiryo, sans-serif;
+  }
+}
+
+.btn {
+    border-radius: 15px;
+}
+
+.bg-navbar {
+  background-color: #ffffff;
+}
+
+body {
+    color: #4b4b4b;
+    
+}
+
+a {
+    color: #91cd79;
+}
+
+a:hover {
+  color: #6B8E23;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  color: #4b4b4b;
+}
+
+.navbar-logo:hover, .navbar-brand:focus {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+/* color: #6B8E23; やっぱり#666666をホバーにする navbarのbg候補#FAFAD2*/
+
+.nav-link {
+    color: #4b4b4b;
+    font-size: 12px;
+}
+
+/*申込ボタン*/
+.btn-apply {
+  color: #fff;
+  background-color: #91cd79;
+  border-color: #91cd79;
+}
+
+.btn-apply:hover {
+  color: #fff;
+  background-color: #6B8E23;
+  border-color: #6B8E23;
+}
+
+.btn-apply:focus, .btn-apply.focus {
+  color: #fff;
+  background-color: #6B8E23;
+  border-color: #6B8E23;
+  box-shadow: 0 0 0 0.2rem rgba(212, 229, 229, 0.5);
+}
+
+.btn-apply.disabled, .btn-apply:disabled {
+  color: #fff;
+  background-color: #6B8E23;
+  border-color: #6B8E23;
+}
+
+.btn-apply:not(:disabled):not(.disabled):active, .btn-apply:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #6B8E23;
+  border-color: #6B8E23;
+}
+
+.btn-apply:not(:disabled):not(.disabled):active:focus, .btn-apply:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(212, 229, 229, 1);
+}
+
+/*キャンセルボタン 91cd79*/
+.btn-cancel {
+  color: #fff;
+  background-color: #7d7d7d;
+  border-color: #7d7d7d;
+}
+
+.btn-cancel:hover {
+  color: #fff;
+  background-color: #616161;
+  border-color: #616161;
+}
+
+.btn-cancel:focus, .btn-cancel.focus {
+  color: #fff;
+  background-color: #616161;
+  border-color: #616161;
+  box-shadow: 0 0 0 0.2rem rgba(176,176,176, 0.5);
+}
+
+.btn-cancel.disabled, .btn-cancel:disabled {
+  color: #fff;
+  background-color: #616161;
+  border-color: #616161;
+}
+
+.btn-cancel:not(:disabled):not(.disabled):active, .btn-cancel:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #616161;
+  border-color: #616161;
+}
+
+.btn-cancel:not(:disabled):not(.disabled):active:focus, .btn-cancel:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(176,176,176, 1);
+}
+
+
+
+
+
+
+.jumbotron {
+  padding: 0;
+  width: auto;
+  height:auto;
+  margin:auto;
+  background-size: cover;
+  position: relative;
+  
+}
+
+
+.jumbotron img{
+    
+    width: 100%;
+    height:auto;
+    margin:auto;
+    background-size: cover;
+}
+
+
+.top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #808080;
+    font-weight: bold;
+    top: 40%;
+    left: 7%;
+}
+
+
+.contents-title {
+    font-size: 38px;
+    text-align: center;
+    
+    border-bottom: solid 6px #ffa462;   /* 線指定 */
+    padding-bottom:  10px;       /* 余白指定 */
+    margin-bottom: 50px;        /* 周りの余白指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+
+}
+
+
+.contents-title:before {
+    content:  '';                   /* 空白の要素を作る */
+    width: 80px;                    /* 幅指定 */
+    height: 6px;                    /* 高さ指定 */
+    background-color: #d4e5ce;      /* 背景色指定 */
+    display:  block;                /* ブロック要素にする */
+    position:  absolute;            /* 位置調整 */
+    left:  0;                       /* 位置調整 */
+    bottom: -6px;                   /* 位置調整 */
+}
+
+
+.page-title {
+    font-size: 34px;
+    text-align: left;
+    
+    border-bottom: solid 6px #ffa462;   /* 線指定 */
+    padding-bottom:  10px;       /* 余白指定 */
+    margin-bottom: 50px;        /* 周りの余白指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+
+}
+
+.page-title:before {
+    content:  '';                   /* 空白の要素を作る */
+    width: 80px;                    /* 幅指定 */
+    height: 6px;                    /* 高さ指定 */
+    background-color: #d4e5ce;      /* 背景色指定 */
+    display:  block;                /* ブロック要素にする */
+    position:  absolute;            /* 位置調整 */
+    left:  0;                       /* 位置調整 */
+    bottom: -6px;                   /* 位置調整 */
+}
+
+
+.mypage-title {
+    margin:  0;                 /* デフォルトCSS打ち消し */
+    font-size:  34px;           /* 文字サイズ指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+    display:  inline-block;     /* インラインブロックにする */
+    padding-top: 40px;          /* 余白指定 */
+    padding-left: 40px;         /* 余白指定 */
+    padding-bottom: 20px;       /* 余白指定 */
+}
+
+.mypage-title:before {
+    content:  '';               /* 空白の要素を作る */
+    background-color: #ffa462;  /* 背景色指定 */
+    display:  block;            /* ブロック要素にする */
+    position:  absolute;        /* 位置調整 */
+    left:  0;                   /* 位置調整 */
+    height: 90px;               /* 高さ指定 */
+    width: 90px;                /* 幅指定 */
+    border-radius:  50%;        /* 丸くする */
+    top: 0;                     /* 位置調整 */
+    z-index:  -1;               /* 重なり調整 */
+}
+
+
+
+.contents-cats img {
+    width: 100%;
+    height:200px;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.catshow-image img {
+    width: 100%;
+    height:400px;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.catshow-contents .catch_copy {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+
+
+footer {
+    background-color: #d4e5ce;
+    height: 50px;
+    width: 100%;
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+  
+}
+
+
+#wrapper {
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 50px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+
+
+
+.navbar-toggler{
+  border-color: #ffffff;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(75,75,75,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.copy {
+  display:flex;
+}
+
+
+
+

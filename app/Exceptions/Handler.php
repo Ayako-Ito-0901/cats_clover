@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException; //この追加を忘れない
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,23 +47,30 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
+     
+    /*コメントアウトした 
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
     }
+    ここまで
+    */
     
-    // マルチ認証時に追加。間違っているかも
-    protected function unauthenticated($request, AuthenticationException $exception)
-{
-    if ($request->expectsJson()) {
-        return response()->json(['error' => 'Unauthenticated.'], 401);
-    }
-    if (in_array('admin', $exception->guards(), true)) {
-        return redirect()->guest(route('admin.login'));
-    }
+    //以下追加
+    public function unauthenticated($request, AuthenticationException $exception)
+    {
+        if($request->expectsJson()){
+            return response()->json(['message' => $exception->getMessage()], 401);
+        }
  
-    return redirect()->guest(route('login'));
-}
-    
+        if (in_array('admin', $exception->guards())) {
+            return redirect()->guest(route('admin.login'));
+        }
+        
+        //return redirect()->action('HomeController@index');
+        //return redirect('/');
+        return redirect()->guest(route('login')); 
+    }
+    // ここまで追加
     
 }

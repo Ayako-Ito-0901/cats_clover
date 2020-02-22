@@ -9,8 +9,8 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-
-    require('bootstrap-sass');
+    // 変更　元は　boostrap-sass。変更後は　bootstrap
+    require('boostrap-sass');
 } catch (e) {}
 
 /**
