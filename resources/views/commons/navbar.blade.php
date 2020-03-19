@@ -1,6 +1,6 @@
 <header class="">
     <nav class="navbar navbar-expand-sm navbar-warning bg-navbar"> 
-        <a class="navbar-logo" href="/">CatsClover</a>
+        <a class="navbar-logo" href="/"><img src="https://catsclover.s3.amazonaws.com/myprefix/cats_clover_logo.PNG" class="logo-img"></a>
          
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
@@ -20,8 +20,8 @@
                         </ul>
                     </li>
                 @else
-                    <li class="nav-item">{!! link_to_route('signup.get', '会員登録', [], ['class' => 'nav-link']) !!}</li>
-                    <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item"><a href="{{ route('signup.get', "") }}" class="nav-link"><i class="fas fa-user-plus"></i> 会員登録</a></li>
+                    <li class="nav-item"><a href="{{ route('login', "") }}" class="nav-link"><i class="fas fa-sign-in-alt"></i> ログイン</a></li>
                 @endif
             </ul>
         </div>

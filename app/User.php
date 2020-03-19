@@ -68,6 +68,40 @@ class User extends Authenticatable
         }
     }
     
+    // お気に入り機能で追加
+    public function favoritecats() {
+        return $this->belongsToMany(Cat::class, 'favorite', 'user_id', 'cat_id')->withTimestamps();
+    }
+    
+    // お気に入り登録
+    public function favorite($catId) {
+        $exist = $this->is_favorite($catId);
+        
+        if ($exist) {
+            return false;
+        }
+        else {
+            $this->favoritecats()->attach($catId);
+            return true;
+        }
+    }
+    
+    // お気に入りを外す
+    public function unfavorite($catId) {
+        $exist = $this->is_favorite($catId);
+        
+        if ($exist) {
+            $this->favoritecats()->detach($catId);
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+    
+    public function is_favorite($catId) {
+        return $this->favoritecats()->where('cat_id', $catId)->exists();
+    }
     
     
 }

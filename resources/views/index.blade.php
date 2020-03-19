@@ -13,24 +13,34 @@
 @section('content')
 
 
-    
-    <h1 class="contents-title mt-5">家族募集中のCats<i class="fas fa-cat"></i></h1>
-
-    <div class="row">
+    <div class="h1title">
+    <h1 class="index-title mt-5 text-center"><span>家族募集中のCats<i class="fas fa-cat"></i></span></h1>
+    </div>
+    <div class="row mt-4">
         
     @if (count($cats) > 0)
     @foreach ($cats as $cat)
     
         <div class="col-xs-12 col-md-3 text-center contents-cats mb-5">
-            <a href="{{ action('HomeController@show', $cat->id) }}">
-            <img src="{{ $cat->mainimage_path }}">
-            </a>
+            <div class="contents-cats-image">
+                <a href="{{ action('HomeController@show', $cat->id) }}">
+                    <img src="{{ $cat->mainimage_path }}">
+                </a>
+            </div>
             <div class="caption">
-                <div>{{ $cat->gender }} <i class="fas fa-paw"></i> {{ $cat->age }}歳</div>
+                <div class="inline-block">
+                    {{ $cat->gender }} <i class="fas fa-paw"></i> {{ $cat->age }}歳
+                </div>
+                <div class="inline-block">
+                    @include('commons.favorite_button', ['cat' => $cat])
+                </div>
+                
                 <div class="copy">
                     <p>{{ $cat->catch_copy }}</p>
                 </div>
-                @include('commons.apply_button', ['cat' => $cat])
+                <div class="applybtn">
+                    @include('commons.apply_button', ['cat' => $cat]) 
+                </div>
             </div>
         </div>
     

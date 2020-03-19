@@ -6,7 +6,7 @@
         <div class="mt-4">里親のトライアルをご希望の方は、以下より会員登録をお願いします。</div>
     </div>
 
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-sm-6 offset-sm-3">
 
             {!! Form::open(['route' => 'signup.post']) !!}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cat; // Cats情報の取得
 use Storage; // 画像アップで追加してみた
+use App\Photo; // Photo機能で追加
 use App\User;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -15,8 +16,9 @@ class CatsController extends Controller
     public function index()
     {
         $cats = Cat::orderBy('id', 'desc')->paginate(20);
+        $users = User::all();
         
-        return view('admin.cats', ['cats' => $cats,]);
+        return view('admin.cats', ['cats' => $cats, 'users' => $users]);
     }
     
     
@@ -111,22 +113,17 @@ class CatsController extends Controller
     
     public function show($id) {
         $cat = Cat::find($id);
+        $photo = Photo::whereNull('user_id')->where('cat_id', $id)->get();
         $applied = $cat->applied()->get();
         //dd($applied);
         
         $data = [
             'cat' => $cat,
             'applieds' => $applied,
+            'photos' => $photo,
         ];
         
         return view('admin.catshow', $data);
-        
-        /*
-        return view('admin.catshow')->with([
-           "cat" => $cat,
-           "data" => $data
-           ]);
-           */
     }
     
     
@@ -162,17 +159,6 @@ class CatsController extends Controller
         
         
         $cat = Cat::find($id);
-        /*
-        // s3アップロード開始
-        $image = $request->file('mainimage_path');
-        
-        // バケットの`myprefix`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('/myprefix', $image, 'public');
-        // アップロードした画像のフルパスを取得
-        $cat->mainimage_path = Storage::disk('s3')->url($path);
-       */
-       
-       
        
        // 画像がアップロードされたら保存する
        if ($request->mainimage_path) {

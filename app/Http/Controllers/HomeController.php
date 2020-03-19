@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cat; // Cats情報の取得
+use App\Photo; // Photo機能で追加
 use Storage; // 画像アップで追加してみた
 
 
@@ -34,13 +35,18 @@ class HomeController extends Controller
         
         return view('index', ['cats' => $cats,]);
     }
+
     
     public function show($id) {
         $cat = Cat::find($id);
+        $photos = Photo::all()->where('cat_id' ,$id)->where('user_id', ''); //あとで
         
-        return view('usercatshow', [
+        $data = [
             'cat' => $cat,
-            ]);
+            'photos' => $photos,
+        ];
+        
+        return view('usercatshow', $data);
     }
     
 }

@@ -13,6 +13,10 @@ class Cat extends Model
         return $this->belongsToMany(User::class, 'user_cat', 'cat_id', 'user_id')->withTimestamps();
     }
     
+    // photo機能で追加
+    public function photos() {
+        return $this->hasMany(Photo::class);
+    }
     
 }
 

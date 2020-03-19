@@ -43,10 +43,7 @@
                 {!! Form::label('status', 'ステータス') !!}
                 {!! Form::select('status', ['募集中', 'トライアル申込', 'トライアル中', '決定', '保留']) !!}
             </div>
-            <div class="form-group">
-                {!! Form::label('user_id', '里親') !!}
-                {!! Form::select('user_id', ['']) !!}
-            </div>
+            
             <div class="form-group">
                  {!! Form::label('mainimage_path', 'メイン写真') !!}
                 <input type="file" name="mainimage_path">

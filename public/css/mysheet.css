@@ -64,6 +64,7 @@ popover {
 
 body {
     color: #4b4b4b;
+    /*overflow-x: hidden; 下のスクロールバーを消す*/
     
 }
 
@@ -74,6 +75,18 @@ a {
 a:hover {
   color: #6B8E23;
   text-decoration: none;
+}
+
+
+h2 {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #FFA462;/*左線*/
+}
+
+img.logo-img {
+width: 180px;
+
 }
 
 .navbar-logo {
@@ -91,7 +104,6 @@ a:hover {
   text-decoration: none;
   color: #4b4b4b;
 }
-/* color: #6B8E23; やっぱり#666666をホバーにする navbarのbg候補#FAFAD2*/
 
 .nav-link {
     color: #4b4b4b;
@@ -175,10 +187,6 @@ a:hover {
 }
 
 
-
-
-
-
 .jumbotron {
   padding: 0;
   width: auto;
@@ -204,49 +212,68 @@ a:hover {
     top: 0;
     left: 0;
     font-size: 2.8rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px #808080;
+    color: #FFF9DB;
+    text-shadow: 2px 2px 4px #4C4C4C;
     font-weight: bold;
     top: 40%;
     left: 7%;
 }
 
-
-.contents-title {
-    font-size: 38px;
-    text-align: center;
-    
-    border-bottom: solid 6px #ffa462;   /* 線指定 */
-    padding-bottom:  10px;       /* 余白指定 */
-    margin-bottom: 50px;        /* 周りの余白指定 */
-    position:  relative;        /* 位置調整 */
-    font-weight:  normal;       /* 文字の太さ調整 */
-
+/*スマホの時は文字サイズを小さくする*/
+@media screen and (max-width: 768px) {
+  .top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.8rem;
+    color: #FFF9DB;
+    text-shadow: 2px 2px 4px #4C4C4C;
+    font-weight: bold;
+    top: 40%;
+    left: 7%;
+}
 }
 
-
-.contents-title:before {
-    content:  '';                   /* 空白の要素を作る */
-    width: 80px;                    /* 幅指定 */
-    height: 6px;                    /* 高さ指定 */
-    background-color: #d4e5ce;      /* 背景色指定 */
-    display:  block;                /* ブロック要素にする */
-    position:  absolute;            /* 位置調整 */
-    left:  0;                       /* 位置調整 */
-    bottom: -6px;                   /* 位置調整 */
+.h1title {
+  text-align:center;
 }
+
+.index-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+  
+}
+.index-title:before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #FFF3AD;
+  border-radius: 2px;
+}
+
 
 
 .page-title {
     font-size: 34px;
     text-align: left;
     
-    border-bottom: solid 6px #ffa462;   /* 線指定 */
+    border-bottom: solid 6px #FFF3AD;   /* 線指定 */
     padding-bottom:  10px;       /* 余白指定 */
     margin-bottom: 50px;        /* 周りの余白指定 */
     position:  relative;        /* 位置調整 */
     font-weight:  normal;       /* 文字の太さ調整 */
 
+}
+
+.catrow {
+  display:flex;
 }
 
 .page-title:before {
@@ -274,7 +301,7 @@ a:hover {
 
 .mypage-title:before {
     content:  '';               /* 空白の要素を作る */
-    background-color: #ffa462;  /* 背景色指定 */
+    background-color: #FFF3AD;  /* 背景色指定 */
     display:  block;            /* ブロック要素にする */
     position:  absolute;        /* 位置調整 */
     left:  0;                   /* 位置調整 */
@@ -285,14 +312,84 @@ a:hover {
     z-index:  -1;               /* 重なり調整 */
 }
 
+/*ボタンの高さをそろえる*/
+.contents-cats {
+    position: relative;
+    padding-bottom: 40px;
+}
 
+.contents-cats .applybtn {
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 5px;
+}
+/*ボタンの高さをそろえるend*/
 
-.contents-cats img {
+.contents-cats-image img {
     width: 100%;
     height:200px;
     margin:auto;
     background-size: cover;
     object-fit: cover;
+}
+
+/*スマホの時は高さを300pxにする*/
+@media screen and (max-width: 768px) {
+.contents-cats-image img {
+    width: 100%;
+    height:300px;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+}
+}
+
+.contents-cats img:hover{
+  opacity: 0.6;
+  /*transform: scale(1.1);  拡大*/
+  transition-duration: 0.5s;
+}
+
+
+/*  お気に入りで追加したハート*/
+.favorite {
+    width: 20px;
+    height:100%;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+    display: inline-block;
+    color: #DF5656;
+    font-size: 10px;
+}
+
+.favoritetab img {
+    width: 14px;
+    height:100%;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+    display: inline-block;
+    color: #DF5656;
+    font-size: 10px;
+}
+
+.favorite:hover {
+  transform: scale(1.1); /*拡大*/
+  transition-duration: 0.5s;
+}
+
+.inline-block {
+  display: inline-block;
+
+}
+
+.inline-block .heart {
+  margin-top: 10px;
+
 }
 
 .catshow-image img {
@@ -308,27 +405,123 @@ a:hover {
   font-weight: bold;
 }
 
-
-
-
+/*一番下の、All right~部分*/
 footer {
     background-color: #d4e5ce;
     height: 50px;
     width: 100%;
-    position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    
+}
+
+
+/*猫ちゃん画像部分*/
+.footer-contentsarea {
+  width: 100%;
+  height: 300px;
+  background: #EDEDED;
+
+  position: relative; /*相対位置*/
+
+}
+
+/*2カラム部分　footer-textが2カラム部分*/
+.footer-contentsarea .footer-text{
+    width: 100%; /*absoluteで位置を設定するときに、幅と高さは必ず必要*/
+    /*height: 1.5em;*/
+    height: 240px;
+    color: #14240E;
+    text-align: center;
+
+    /*位置の設定 - 上下中央寄せ*/
+    /*position: absolute;*/
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    /*上下中央寄せ*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.footer-contentsarea .footer-text .footer-text-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+img.example1 {
+width: 300px;
+
+}
+
+@media screen and (max-width: 768px) {
+  .footer-text-logo {
+     display: none; 
+}
   
 }
 
 
-#wrapper {
-    min-height: 100vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 50px;/*←footerの高さ*/
-    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+/*1カラム部分*/
+.footer-link {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+    
+
+}
+
+.footer-link a{
+    color: #14240E;
+    font-size: 12px;
+    position: relative; /*aが覆われるのを防ぐために記載*/
+}
+
+.footer-link a:hover {
+  color: #14240E;
+  text-decoration: none;
+}
+
+.footer-link ul li {
+    list-style: none;
+    display: inline;
+    margin-right: 2em;
 }
 
 
+
+/*猫ちゃん部分の画像*/
+.bg{
+    /*位置の設定*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*背景画像の設定*/
+    background: URL(https://catsclover.s3.amazonaws.com/myprefix/cat_footer2.JPG);
+    background-size: cover; /*描画領域全体を覆い尽くすまで拡大・縮小させる*/
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /*透過の設定*/
+    opacity: 0.5;
+}
+
+#wrapper {
+    
+    padding-bottom: 50px;/*←footerの高さ 元々は50px*/
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
 
 
 .navbar-toggler{
@@ -339,9 +532,32 @@ footer {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(75,75,75,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.copy {
-  display:flex;
+/*吹き出し*/
+.reply-fromadmin {
+  position: relative;
+  padding: 20px;
+  background-color: #FFF9DB;
+  
 }
+
+.reply-fromadmin:before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: -15px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #FFF9DB;
+  border-left: 15px solid transparent;
+}
+
+.reply-fromadmin p {
+  margin: 0;
+  padding: 0;
+}
+/*吹き出しend*/
 
 
 

@@ -77,8 +77,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+// バリデーションの日本語化でenからjaに変更
+    'locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------

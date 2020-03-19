@@ -8,7 +8,7 @@ class Photo extends Model
 {
     protected $fillable = ['cat_id', 'image_path', 'comment', 'user_id'];
     
-    //これいらないかも？
+    //これいらないかも？いや、いる
     public function cat()
     {
         return $this->belongsTo(Cat::class);

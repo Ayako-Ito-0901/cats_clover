@@ -47,5 +47,6 @@
     </body>
     
     @yield('script2')
+    @yield('script3')
     
 </html>

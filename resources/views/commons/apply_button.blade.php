@@ -12,7 +12,7 @@
   });
   
   //ここ追加
-  $(".btn-apply").click(function () {
+  $(".apply").click(function () {
       alert("お申込みありがとうございます。後程、担当者よりご連絡いたします。");
   });
   });
@@ -21,7 +21,7 @@
 @else
     <script>
     $(function(){
-        $(".btn-apply").click(function () {
+        $(".apply").click(function () {
       alert("お申込みされる方は、ログインまたは会員登録をお願いします。");
   });
     });
@@ -39,12 +39,12 @@
         {!! Form::close() !!}
     @else
         {!! Form::open(['route' => ['user.apply', $cat->id]]) !!}
-            {!! Form::submit('トライアル申込', ['class' => "btn btn-sm btn-apply"]) !!}
+            {!! Form::submit('トライアル申込', ['class' => "btn btn-sm btn-apply apply"]) !!}
         {!! Form::close() !!}
     @endif
 @else
     {!! Form::open(['route' => ['user.apply', $cat->id]]) !!}
-            {!! Form::submit('トライアル申込', ['class' => "btn btn-primary btn-sm btn-apply"]) !!}
+            {!! Form::submit('トライアル申込', ['class' => "btn btn-primary btn-sm btn-apply apply"]) !!}
         {!! Form::close() !!}
 
 @endif   

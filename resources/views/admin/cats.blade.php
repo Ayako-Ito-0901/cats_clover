@@ -1,13 +1,13 @@
 @extends('layouts.app_admin')
 
 @section('content')
-<div class="container">
+
     <h1>Cats一覧</h1>
     
-    {!! link_to_route('cats.create', '新規作成', [], ['class' => 'btn-primary']) !!}
+    {!! link_to_route('cats.create', '新規作成', [], ['class' => 'btn btn-apply']) !!}
     
         @if (count($cats) > 0)
-        <table class="table table-striped">
+        <table class="table table-striped mt-5">
             <thead>
                 <tr>
                     <th>id</th>
@@ -16,6 +16,7 @@
                     <th>性別</th>
                     <th>年齢</th>
                     <th>ステータス</th>
+                    <th>トライアル申込</th>
                     <th>里親</th>
                     <th></th>
                 </tr>
@@ -25,23 +26,35 @@
                 <tr>
                     <td>{{ $cat->id }}</td>
                     <td>{{ $cat->name }}</td>
-                    <td>{{ $cat->created_at }}</td>
+                    <td class="small">{{ $cat->created_at }}</td>
                     <td>{{ $cat->gender }}</td>
                     <td>{{ $cat->age }}</td>
                     <td>{{ $cat->status}}</td>
-                    <td>{{ $cat->user_id}}</td>
-                    <td>{!! link_to_route('cats.show', '詳細', ['id' => $cat->id]) !!}</td>
+                    <td>
+                        <?php // 申込ユーザーを記載する処理
+                    $applieds = $cat->applied()->get(); ?>
+                    @if ($applieds)
+                        @foreach ($applieds as $applied)
+                        
+                            {!! link_to_route('member.show', $applied->id, ['id' => $applied->id]) !!},
+                        @endforeach    
+                    @endif
+                    
+                        
+                    </td>
+                    <td>@if ($cat->user_id !== NULL)
+                        <?php $user = $users->find($cat->user_id); ?>
+                        
+                        {!! link_to_route('member.show', $cat->user_id.':'.$user->name, ['id' => $cat->user_id]) !!} 
+                        @endif
+                    </td>
+                    <td>{!! link_to_route('cats.show', '詳細', ['id' => $cat->id], ['class' => 'btn btn-sm btn-apply']) !!}</td>
                 </tr>
                 @endforeach
                 {{ $cats->links('pagination::bootstrap-4') }}
             </tbody>
-            
-            
-            
         </table>
  
     
             @endif
-        
-</div>
 @endsection
