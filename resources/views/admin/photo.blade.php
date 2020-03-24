@@ -69,6 +69,7 @@ $('#Modal').on('show.bs.modal', function (event) {
             @endforeach
         @endif
         
+        @if (count($photos) > 0)
         {{--★モーダルウィンドウ--}}    
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   　<div class="modal-dialog">
@@ -99,5 +100,6 @@ $('#Modal').on('show.bs.modal', function (event) {
         </div>
     </div>
 </div>
+@endif
 
 @endsection
