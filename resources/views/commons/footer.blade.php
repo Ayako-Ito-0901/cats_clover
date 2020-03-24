@@ -31,10 +31,15 @@
             </div>
             
             <div class="footer-link">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">ログイン</a></li>
-                    <li><a href="#">会員登録</a></li>
+                <ul>@if (Auth::check())
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{{ action('UsersController@applyings', Auth::user()->id) }}">マイページ</a></li>
+                    <li><a href="{{ route('logout.get', "") }}">ログアウト</a></li>
+                    @else
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{{ route('signup.get', "") }}">会員登録</a></li>
+                    <li><a href="{{ route('login', "") }}">ログイン</a></li>
+                    @endif
                 </ul>
             </div>
             

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-    
 @section('content')
 
     <h1 class="page-title mt-5">{{ $cat->name }}ちゃん　{{ $cat->gender }} <i class="fas fa-paw"></i> {{ $cat->age }}歳</h1>
