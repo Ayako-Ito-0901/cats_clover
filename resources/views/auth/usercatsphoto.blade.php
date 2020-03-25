@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('comment', 'コメント') !!}<span class="small">（必須）</span>
-                    <div>{!! Form::textarea('comment', null, ['size' => '50x4']) !!}</div>
+                    <div>{!! Form::textarea('comment', null, ['size' => '30x4']) !!}</div>
                 </div>
             
                 {!! Form::submit('写真を投稿', ['class' => 'btn btn-apply']) !!}
