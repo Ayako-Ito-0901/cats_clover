@@ -26,7 +26,7 @@
     
         
         @include('commons.navbar_admin')
-        @include('commons.error_messages')
+        {{--@include('commons.error_messages')--}}
 
         
             
