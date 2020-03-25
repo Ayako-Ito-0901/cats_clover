@@ -406,6 +406,12 @@ footer {
   #nav-drawer {
     display:inline!important;
   }
+  
+  .textarea {
+    resize: vertical;
+    max-width: 500px;
+    min-width: 100px;
+  }
 }
 
 #sidebar {
