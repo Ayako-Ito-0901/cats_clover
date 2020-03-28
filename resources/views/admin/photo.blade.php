@@ -103,4 +103,5 @@ $('#Modal').on('show.bs.modal', function (event) {
 @endif
 
 </div>
+</div>
 @endsection

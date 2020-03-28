@@ -8,6 +8,7 @@
     
     
         @if (count($users) > 0)
+        <div class="scroll-table">
         <table class="table table-striped mt-5">
             <thead>
                 <tr>
@@ -50,7 +51,7 @@
                 {{ $users->links('pagination::bootstrap-4') }}
             </tbody>
         </table>
-        
+        </div>
         @endif
         
 </div>

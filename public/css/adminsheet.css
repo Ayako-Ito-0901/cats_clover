@@ -524,5 +524,12 @@ footer {
   margin: 0;
   padding: 0;
 }
-/*吹き出し*/
+/*吹き出しend*/
+
+/*テーブルの横スクロール*/
+.scroll-table {
+  overflow: auto;
+  white-space: nowrap;
+}
+
 

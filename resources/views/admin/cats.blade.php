@@ -8,6 +8,7 @@
     {!! link_to_route('cats.create', '新規作成', [], ['class' => 'btn btn-apply']) !!}
     
         @if (count($cats) > 0)
+        <div class="scroll-table">
         <table class="table table-striped mt-5">
             <thead>
                 <tr>
@@ -55,7 +56,7 @@
                 {{ $cats->links('pagination::bootstrap-4') }}
             </tbody>
         </table>
- 
+        </div>
 </div>    
             @endif
 @endsection
