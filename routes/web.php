@@ -35,9 +35,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 
 
-
-    
- 
     
 // Userログイン後 ここにログイン認証が必要な処理を入れる
 Route::group(['middleware' => 'auth:user'], function() {

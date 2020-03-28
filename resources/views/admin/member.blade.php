@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container mb-5">
     <h1>会員一覧</h1>
     
     
@@ -51,4 +52,6 @@
         </table>
         
         @endif
+        
+</div>
 @endsection

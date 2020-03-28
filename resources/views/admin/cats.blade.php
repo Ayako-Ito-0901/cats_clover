@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container mb-5">
     <h1>Cats一覧</h1>
     
     {!! link_to_route('cats.create', '新規作成', [], ['class' => 'btn btn-apply']) !!}
@@ -55,6 +56,6 @@
             </tbody>
         </table>
  
-    
+</div>    
             @endif
 @endsection

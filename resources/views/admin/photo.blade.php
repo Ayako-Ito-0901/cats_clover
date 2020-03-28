@@ -21,7 +21,7 @@ $('#Modal').on('show.bs.modal', function (event) {
           
           
 
-
+<div class="container mb-5">
     <h1>Photo一覧</h1>
     
     
@@ -102,4 +102,5 @@ $('#Modal').on('show.bs.modal', function (event) {
 </div>
 @endif
 
+</div>
 @endsection

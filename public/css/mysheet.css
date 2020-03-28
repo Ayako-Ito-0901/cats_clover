@@ -237,6 +237,14 @@ h1 {
   font-size: 1.8rem;
 }
 
+.photocomment {
+    width:100%;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
+  
+}
+
 }
 
 .h1title {
@@ -410,6 +418,7 @@ h1 {
   font-weight: bold;
 }
 
+
 /*一番下の、All right~部分*/
 footer {
     background-color: #d4e5ce;
@@ -564,6 +573,15 @@ width: 300px;
 }
 /*吹き出しend*/
 
+
+.photocomment {
+    width:40%;
+    height: 150px;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
+  
+}
 
 
 

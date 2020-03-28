@@ -16,6 +16,7 @@
 @endsection
 
 @section('content')
+
 <div class="container mb-5">
     <h1>Cat's id：「{{ $cat->id }}」</h1>
     

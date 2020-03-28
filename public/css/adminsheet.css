@@ -408,10 +408,27 @@ footer {
   }
   
   .textarea {
-    resize: vertical;
-    max-width: 500px;
-    min-width: 100px;
+    width:100%;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
   }
+  
+  .textareawide {
+    width:100%;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
+  }
+  
+  .textareayear {
+    width:50%;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
+  }
+  
+  
 }
 
 #sidebar {
@@ -456,6 +473,17 @@ footer {
 #sidebar ul li a:hover {
     background-color: #ADD99B;
 }
+
+
+.textareawide {
+    width:80%;
+    box-sizing:border-box;
+    padding: 0em;
+    margin:0;
+  }
+
+
+
 
 
 .cat_lavel {

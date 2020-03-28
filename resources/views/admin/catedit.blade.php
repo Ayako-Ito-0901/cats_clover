@@ -14,45 +14,66 @@
 
 <div class="container mb-5">
     <h1>id: {{ $cat->id }}編集ページ</h1>
-    <?php //dd($cat); ?>
-    <div class="row">
-    <div class="col-5">
-        
-        
-   
+    
+    <div class="">
+  
         {!! Form::model($cat, ['route' => ['cats.update', $cat->id], 'files' => true,'method' => 'put']) !!}
             {{ csrf_field() }}
             <div class="form-group">
-                {!! Form::label('name', '名前', ['class' => 'cat_lavel']) !!}
-                {!! Form::text('name', $cat->name, ['size' => '50x7', 'class' => 'textarea']) !!}
+                <div>
+                    {!! Form::label('name', '名前', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::text('name', $cat->name, ['class' => 'textareawide']) !!}
+                </div>
             </div>
-            <div class="form-group">
-                {!! Form::label('age', '年齢', ['class' => 'cat_lavel']) !!}
-                {!! Form::text('age', null, ['class' => 'textarea']) !!}歳
-            </div>
-            <div class="form-group">
-                {!! Form::label('gender', '性別', ['class' => 'cat_lavel']) !!}
-                {!! Form::select('gender', ['男の子' => '男の子', '女の子' => '女の子'], $cat->gender) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('catch_copy', 'キャッチコピー', ['class' => 'cat_lavel']) !!}
-                {!! Form::text('catch_copy', null, ['size' => '50x7','class' => 'textarea']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('feature', '特長', ['class' => 'cat_lavel']) !!}
-                {!! Form::textarea('feature', null, ['class' => 'textarea']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('status', 'ステータス', ['class' => 'cat_lavel']) !!}
-                {!! Form::select('status', ['募集中', 'トライアル申込', 'トライアル中', '決定', '保留']) !!}
-            </div>
-            <div>
-                
             
+            <div class="form-group">
+                <div>
+                    {!! Form::label('age', '年齢', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::text('age', null, ['class' => 'textareayear']) !!}歳
+                </div>
             </div>
             <div class="form-group">
-                {!! Form::label('user_id', '里親', ['class' => 'cat_lavel']) !!}
-                
+                <div>
+                    {!! Form::label('gender', '性別', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::select('gender', ['男の子' => '男の子', '女の子' => '女の子'], $cat->gender) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    {!! Form::label('catch_copy', 'キャッチコピー', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::text('catch_copy', null, ['class' => 'textareawide']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    {!! Form::label('feature', '特長', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::textarea('feature', null, ['class' => 'textareawide']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    {!! Form::label('status', 'ステータス', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::select('status', ['募集中', 'トライアル申込', 'トライアル中', '決定', '保留']) !!}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    {!! Form::label('user_id', '里親', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
                 {{-- 申込ユーザーを取得して、選択肢として記載 --}}
                 @if (count($applieds) > 0)
                 <select name="user_id">
@@ -72,22 +93,31 @@
                 
                 
                 @if (count($applieds) > 0)
-            <div>
+                <div>
                 @foreach ($applieds as $applied)
-                {!! link_to_route('member.show', $applied->id, ['id' => $applied->id]) !!} {{ $applied->name }}<br>
+                    {!! link_to_route('member.show', $applied->id, ['id' => $applied->id]) !!} {{ $applied->name }}<br>
                 @endforeach
-            </div>
+                </div>
         @endif  
                 
+                </div>
             </div>
             <div class="form-group">
-                 {!! Form::label('mainimage_path', 'メイン写真', ['class' => 'cat_lavel']) !!}
-                <input type="file" name="mainimage_path">
+                <div>
+                     {!! Form::label('mainimage_path', 'メイン写真', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    <input type="file" name="mainimage_path">
+                </div>
                 
             </div>
             <div class="form-group">
-                {!! Form::label('memo', 'メモ', ['class' => 'cat_lavel']) !!}
-                {!! Form::textarea('memo', null, ['class' => 'textarea']) !!}
+                <div>
+                    {!! Form::label('memo', 'メモ', ['class' => 'cat_lavel']) !!}
+                </div>
+                <div>
+                    {!! Form::textarea('memo', null, ['class' => 'textareawide']) !!}
+                </div>
             </div>
             {!! Form::submit('更新', ['class' => 'btn btn-apply']) !!}
             
@@ -102,8 +132,8 @@
         
         
         
+    
     </div>
-</div>
         
 </div>
 @endsection

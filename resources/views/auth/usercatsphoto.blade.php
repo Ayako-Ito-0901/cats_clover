@@ -7,8 +7,7 @@
 
     <h1 class="mypage-title mt-5">{{ $cat->name }}ちゃんのPhoto <i class="fas fa-camera-retro"></i></h1>
     
-    <div class="row mt-5">
-        <div class="col-5">
+    
             {!! Form::open(['route' => ['user.photostore', 'userid' => $user->id, 'catid' => $cat->id], 'files' => true,'method' => 'post']) !!}
             {{ csrf_field() }}
                 <div class="form-group">
@@ -18,14 +17,13 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('comment', 'コメント') !!}<span class="small">（必須）</span>
-                    <div>{!! Form::textarea('comment', null, ['size' => '30x4']) !!}</div>
+                    <div>{!! Form::textarea('comment', null, ['size' => '50x4']) !!}</div>
                 </div>
             
                 {!! Form::submit('写真を投稿', ['class' => 'btn btn-apply']) !!}
 
             {{ Form::close() }}
-        </div>
-    </div>
+    
     
 
     <div class="row mt-5">
