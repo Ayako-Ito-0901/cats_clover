@@ -40,16 +40,27 @@ class PhotosController extends Controller
         }
     }
     
-    // adminのphotoページでユーザーからの写真一覧を表示する機能
-    public function adminphotoindex() {
-        $photos = Photo::whereNotNull('user_id')->orderBy('created_at', 'desc')->paginate(30);
+    // adminのphotoページでユーザーからの写真一覧を表示する機能 検索機能で修正
+    public function adminphotoindex(Request $request) {
+        
+        //キーワード受け取り
+        $catid = $request->input('cat_id');
+        if (!empty($catid)) {
+            $photos = Photo::whereNotNull('user_id')->where('cat_id', $catid)->orderBy('created_at', 'desc')->paginate(3)->appends($request->except(['']));
+        }
+        else {
+            $photos = Photo::whereNotNull('user_id')->orderBy('created_at', 'desc')->paginate(3);
+            
+        }
+        
         $users = User::all();
         $cats = Cat::all();
         
         return view('admin.photo', [
             'photos' => $photos,
             'users' => $users,
-            'cats' => $cats
+            'cats' => $cats,
+            'catid' => $catid
             ]);
     }
     
@@ -186,6 +197,8 @@ class PhotosController extends Controller
         return redirect()->action('PhotosController@adminphotoindex');
     }
     
+    
+   
     
     
 }

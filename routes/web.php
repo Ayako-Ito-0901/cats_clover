@@ -100,6 +100,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::delete('photos/{id}', 'PhotosController@adminphotodestroy')->name('admin.photodestroy');
     Route::get('photos/{id}', 'PhotosController@adminphotoedit')->name('admin.photoedit');
     Route::put('photos/{id}', 'PhotosController@adminphotoupdate')->name('admin.photoupdate');
+    // 写真検索で追加
+    //Route::get('/photo', 'PhotosController@adminphotosearch')->name('admin.serachphotoindex');
     
     // 申込機能で追加 追加していいものか・・・
     //Route::group(['prefix' => 'cats/{id}'], function() {

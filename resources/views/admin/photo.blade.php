@@ -24,11 +24,23 @@ $('#Modal').on('show.bs.modal', function (event) {
 <div class="container mb-5">
     <h1>Photo一覧</h1>
     
+    <div class="col-sm-4" style="padding:20px 0; padding-left:0px;">
+        <label>
+            Cat_id
+        <form class="form-inline" action="{{ route('admin.photoindex') }}">
+            <div class="form-group">
+                <input type="text" name="cat_id" value="{{ $catid ?? '' }}" class="form-control" placeholder="cat_id">
+            </div>
+            <input type="submit" value="検索" class="btn btn-apply ml-2">
+        </form>
+        </label>
+    </div>
+<!--↑↑ 検索フォーム ↑↑-->
     
     <div class="row mt-5">
         @if (count($photos) > 0)
             @foreach ($photos as $photo)
-    
+            
                 <div class="col-xs-12 col-md-3 text-center contents-cats mb-5">
                     <img src="{{ $photo->image_path }}">
                     <div class="caption">
@@ -40,11 +52,8 @@ $('#Modal').on('show.bs.modal', function (event) {
                             ?>｜
                             <a href="{{ action('UsersController@show', $photo->user_id) }}">{{ $photo->user_id }}：
                             <?php // ユーザー名を取得する処理
-                        
-                                $user = $users->find($photo->user_id);
-                                print $user->name;
-                        
-                            ?></a>
+                                $user = $users->find($photo->user_id);       ?>
+                                {{ $user->name }}</a>
                        
                         </div>
                         <p>{{ $photo->comment }}</p>
@@ -66,7 +75,17 @@ $('#Modal').on('show.bs.modal', function (event) {
                             </div>
                     @endif
                 </div>
+            
             @endforeach
+            
+           
+        @endif
+        </div>
+        
+        @if (count($photos) > 0)
+         <div>
+            {{ $photos->links('pagination::bootstrap-4') }}
+        </div>
         @endif
         
         @if (count($photos) > 0)
@@ -102,6 +121,5 @@ $('#Modal').on('show.bs.modal', function (event) {
 </div>
 @endif
 
-</div>
 </div>
 @endsection

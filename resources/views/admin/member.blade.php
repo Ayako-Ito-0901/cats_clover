@@ -28,13 +28,13 @@
                     <td>{{ $user->name }}</td>
                     <td class="small">{{ $user->created_at }}</td>
                     <td>{{ $user->prefecture }}</td>
-                    <td>
-                    <?php // 申込catを記載する処理
-                    $applyings = $user->applyings()->get();
-                    if ($applyings)
-                        foreach ($applyings as $applying)
-                            print $applying['id'] . ",\n";
-                    ?>
+                    <td><?php // 申込catを記載する処理
+                    $applyings = $user->applyings()->get(); ?>
+                        @if ($applyings)
+                            @foreach ($applyings as $applying)
+                                {{ $applying->id }}, 
+                            @endforeach
+                        @endif
                     </td>
                     <td><?php $familycats = $cats->where('user_id', $user->id); ?>
                         @if ($familycats)

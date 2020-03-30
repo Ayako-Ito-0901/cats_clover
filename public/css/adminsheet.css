@@ -428,6 +428,15 @@ footer {
     margin:0;
   }
   
+  /*photoページの写真の高さをスマホの時は高くする*/
+  .contents-cats img {
+    width: 100%;
+    height:300px;
+    margin:auto;
+    background-size: cover;
+    object-fit: cover;
+}
+  
   
 }
 
